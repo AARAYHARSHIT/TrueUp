@@ -1,0 +1,5 @@
+pandas
+pytest
+rapidfuzz
+python-dotenv
+anthropic

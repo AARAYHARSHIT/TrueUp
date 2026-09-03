@@ -1,0 +1,79 @@
+order_id,expected_amount,entry_date,notes
+ORD-10004,3120.27,2026-08-02,sale
+ORD-10015,9532.10,2026-08-02,sale
+ORD-10022,1101.40,2026-08-02,sale
+ORD-10010,3219.45,2026-08-03,sale
+ORD-10019,17552.93,2026-08-03,sale
+ORD-10048,24033.62,2026-08-03,payout batch BATCH-01 member
+ORD-10001,24349.35,2026-08-04,sale
+ORD-10003,19399.54,2026-08-04,sale
+ORD-10034,22388.68,2026-08-04,settlement expected T+2
+ORD-10036,9667.55,2026-08-04,settlement expected T+2
+ORD-10045,11944.39,2026-08-04,split settlement expected (2 credits)
+ORD-10071,21643.55,2026-08-04,awaiting settlement
+ORD-10074,2036.51,2026-08-04,manual entry - verify source
+ORD-10009,11079.13,2026-08-05,sale
+ORD-10026,6681.33,2026-08-05,gateway fee 0.02 of txn expected
+ORD-10030,3543.14,2026-08-05,gateway fee 0.025 of txn expected
+ORD-10049,24973.68,2026-08-05,payout batch BATCH-01 member
+ORD-10064,7070.69,2026-08-05,duplicate-risk cluster DUP-02
+ORD-10077,6062.35,2026-08-05,paise-level variance allowed
+ORD-10008,11199.35,2026-08-06,sale
+ORD-10037,14917.00,2026-08-06,settlement expected T+2
+ORD-10039,16685.13,2026-08-06,settlement expected T+3
+ORD-10042,17724.99,2026-08-06,settlement expected T+3
+ORD-10065,7070.69,2026-08-06,duplicate-risk cluster DUP-02
+ORD-10083,120.49,2026-08-06,refund Rs 12.05 issued
+ORD-10041,5058.47,2026-08-07,settlement expected T+3
+ORD-10053,6990.69,2026-08-07,payout batch BATCH-02 member
+ORD-10076,17623.57,2026-08-07,paise-level variance allowed
+ORD-10002,4622.94,2026-08-08,sale
+ORD-10005,18440.25,2026-08-08,sale
+ORD-10016,12505.35,2026-08-08,sale
+ORD-10020,15197.48,2026-08-08,sale
+ORD-10046,1948.30,2026-08-08,split settlement expected (2 credits)
+ORD-10081,13367.62,2026-08-08,refund Rs 668.38 issued
+ORD-10021,22483.41,2026-08-09,sale
+ORD-10027,20394.68,2026-08-09,gateway fee 0.025 of txn expected
+ORD-10035,21053.43,2026-08-09,settlement expected T+2
+ORD-10038,16453.97,2026-08-09,settlement expected T+2
+ORD-10051,18065.21,2026-08-09,payout batch BATCH-02 member
+ORD-10040,20987.64,2026-08-10,settlement expected T+3
+ORD-10044,16060.02,2026-08-11,split settlement expected (2 credits)
+ORD-10075,3630.31,2026-08-11,manual entry - verify source
+ORD-10011,1473.93,2026-08-12,sale
+ORD-10014,23137.08,2026-08-12,sale
+ORD-10018,22010.34,2026-08-12,sale
+ORD-10028,21121.51,2026-08-12,gateway fee 0.03 of txn expected
+ORD-10055,22059.83,2026-08-12,payout batch BATCH-03 member
+ORD-10072,13929.52,2026-08-12,awaiting settlement
+ORD-10023,2218.27,2026-08-13,sale
+ORD-10054,23411.39,2026-08-13,payout batch BATCH-03 member
+ORD-10052,17340.77,2026-08-14,payout batch BATCH-02 member
+ORD-10070,6289.12,2026-08-14,awaiting settlement
+ORD-10012,12453.10,2026-08-15,sale
+ORD-10017,5379.47,2026-08-15,sale
+ORD-10056,14405.66,2026-08-15,payout batch BATCH-03 member
+ORD-10073,23940.06,2026-08-15,manual entry - verify source
+ORD-10078,2520.56,2026-08-15,paise-level variance allowed
+ORD-10025,21114.58,2026-08-16,sale
+ORD-10029,6532.65,2026-08-16,gateway fee 0.02 of txn expected
+ORD-10050,4257.84,2026-08-16,payout batch BATCH-01 member
+ORD-10062,9175.85,2026-08-16,duplicate-risk cluster DUP-01
+ORD-10068,15538.31,2026-08-16,duplicate-risk cluster DUP-04
+ORD-10082,13191.07,2026-08-16,refund Rs 1055.29 issued
+ORD-10043,68.76,2026-08-17,settlement expected T+3
+ORD-10063,9175.85,2026-08-17,duplicate-risk cluster DUP-01
+ORD-10069,15538.31,2026-08-17,duplicate-risk cluster DUP-04
+ORD-10006,7273.57,2026-08-18,sale
+ORD-10013,20649.79,2026-08-18,sale
+ORD-10033,19338.32,2026-08-18,gateway fee 0.025 of txn expected
+ORD-10079,1707.83,2026-08-18,paise-level variance allowed
+ORD-10080,3106.96,2026-08-18,paise-level variance allowed
+ORD-10007,262.97,2026-08-19,sale
+ORD-10024,7017.83,2026-08-19,sale
+ORD-10047,2630.10,2026-08-19,split settlement expected (2 credits)
+ORD-10066,23752.73,2026-08-19,duplicate-risk cluster DUP-03
+ORD-10031,24298.54,2026-08-20,gateway fee 0.03 of txn expected
+ORD-10032,14608.48,2026-08-20,gateway fee 0.02 of txn expected
+ORD-10067,23752.73,2026-08-20,duplicate-risk cluster DUP-03

@@ -1,0 +1,90 @@
+{
+  "generated_at": "2026-09-03T15:48:34",
+  "pipeline": "deterministic -> fuzzy -> exception_classifier -> llm_resolver",
+  "record_counts": {
+    "gateway": 80,
+    "bank": 75,
+    "ledger": 78
+  },
+  "match_rates": {
+    "deterministic": {
+      "matched": 59,
+      "total": 80,
+      "rate": 0.7375,
+      "rate_pct": "73.75%"
+    },
+    "final": {
+      "matched": 70,
+      "total": 80,
+      "rate": 0.875,
+      "rate_pct": "87.50%"
+    },
+    "improvement_pp": "+13.75pp"
+  },
+  "pass_details": {
+    "deterministic": {
+      "matched": 59,
+      "amount_disagreements": 16,
+      "date_drifts": 10,
+      "full_triples": 58
+    },
+    "fuzzy": {
+      "additional_matched": 11,
+      "split_detected": 4,
+      "batch_detected": 2,
+      "fuzzy_amount_date_edit": 5
+    }
+  },
+  "leftover_records": {
+    "gateway": 10,
+    "bank": 1,
+    "ledger": 13,
+    "total": 24
+  },
+  "exceptions": {
+    "total": 24,
+    "distinct_events": 9,
+    "by_type": {
+      "MISSING_SETTLEMENT": 6,
+      "ORPHAN_LEDGER": 3,
+      "BATCH_SETTLEMENT": 15
+    }
+  },
+  "llm_summary": {
+    "total_llm_calls": 0,
+    "by_outcome": {},
+    "api_errors": 0,
+    "total_input_tokens": 0,
+    "total_output_tokens": 0
+  },
+  "ground_truth_comparison": {
+    "record_counts_match": true,
+    "record_count_discrepancies": [],
+    "deterministic_match_rate": 0.7375,
+    "deterministic_match_rate_pct": "73.75%",
+    "final_match_rate": 0.875,
+    "final_match_rate_pct": "87.50%",
+    "improvement_pp": "+13.75pp",
+    "ground_truth_total_cases": 73,
+    "ground_truth_clean_triples": 25,
+    "ground_truth_categories": {
+      "CLEAN_MATCH": 25,
+      "GATEWAY_FEE": 8,
+      "DATE_DRIFT": 10,
+      "SPLIT_SETTLEMENT": 4,
+      "BATCH_SETTLEMENT": 3,
+      "GARBLED_REFERENCE": 5,
+      "DUPLICATE_NEAR_MATCH": 4,
+      "MISSING_SETTLEMENT": 3,
+      "ORPHAN_LEDGER": 3,
+      "ROUNDING_DIFF": 5,
+      "PARTIAL_REFUND": 3
+    },
+    "pipeline_exceptions_by_type": {
+      "MISSING_SETTLEMENT": 6,
+      "ORPHAN_LEDGER": 3,
+      "BATCH_SETTLEMENT": 15
+    },
+    "pipeline_exception_events": 9
+  }
+}
