@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0D1117;
+  --foreground: #E6EDF3;
+  --muted: #8B949E;
+  --border: #30363D;
+  --card: #161B22;
+  --card-hover: #1C2129;
+  --green: #2EA043;
+  --green-dim: rgba(46, 160, 67, 0.15);
+  --amber: #D29922;
+  --amber-dim: rgba(210, 153, 34, 0.15);
+  --red: #F85149;
+  --red-dim: rgba(248, 81, 73, 0.15);
+  --blue: #58A6FF;
+  --blue-dim: rgba(88, 166, 255, 0.15);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-card-hover: var(--card-hover);
+  --color-green: var(--green);
+  --color-green-dim: var(--green-dim);
+  --color-amber: var(--amber);
+  --color-amber-dim: var(--amber-dim);
+  --color-red: var(--red);
+  --color-red-dim: var(--red-dim);
+  --color-blue: var(--blue);
+  --color-blue-dim: var(--blue-dim);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+/* Monospace numbers for financial data */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
