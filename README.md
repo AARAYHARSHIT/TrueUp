@@ -126,9 +126,10 @@ python -m pytest -q
 cd api_server
 python -m venv venv
 venv\Scripts\activate
+# macOS/Linux: source venv/bin/activate
 pip install -r requirements.txt
 pip install -r ../trueup/requirements.txt
-python -m uvicorn api_server.app.main:app --host 127.0.0.1 --port 8000
+python -m uvicorn api_server.app.main:app --app-dir .. --host 127.0.0.1 --port 8000
 # Docs: http://127.0.0.1:8000/api/v1/docs
 ```
 
@@ -208,9 +209,10 @@ print(get_cash_forecast())
 ```bash
 cd api_server
 venv\Scripts\activate
+# macOS/Linux: source venv/bin/activate
 pip install -r requirements.txt
 pip install -r ../trueup/requirements.txt
-python -m uvicorn api_server.app.main:app --host 127.0.0.1 --port 8000
+python -m uvicorn api_server.app.main:app --app-dir .. --host 127.0.0.1 --port 8000
 ```
 
 ### Endpoints

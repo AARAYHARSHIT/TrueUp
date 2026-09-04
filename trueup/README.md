@@ -332,7 +332,7 @@ The Next.js frontend provides a complete visual interface for the reconciliation
 # Start backend API
 cd api_server
 pip install -r requirements.txt
-python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
+python -m uvicorn api_server.app.main:app --app-dir .. --host 127.0.0.1 --port 8000
 
 # Start frontend (in separate terminal)
 cd frontend
