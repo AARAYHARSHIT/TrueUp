@@ -177,21 +177,22 @@ def _convert_messages(messages: list[dict], system: str) -> list[dict]:
 
     for msg in messages:
         role = msg.get("role", "user")
-        content = msg.get("content", "")
+        content = msg.get("content")
 
         if role == "assistant":
             gemini_role = "model"
+        elif role == "tool":
+            gemini_role = "user"
         else:
             gemini_role = "user"
 
         parts = []
-        if isinstance(content, str):
+        if isinstance(content, str) and content:
             parts.append({"text": content})
         elif isinstance(content, list):
             for block in content:
                 if isinstance(block, dict):
                     if block.get("type") == "tool_result":
-                        # Convert tool result to function response
                         parts.append({
                             "functionResponse": {
                                 "name": block.get("tool_use_id", "unknown"),
@@ -204,6 +205,30 @@ def _convert_messages(messages: list[dict], system: str) -> list[dict]:
                         parts.append({"text": block["text"]})
                     elif "functionCall" in block:
                         parts.append({"functionCall": block["functionCall"]})
+
+        if "tool_calls" in msg:
+            for tc in msg["tool_calls"]:
+                fn = tc.get("function", {})
+                args = fn.get("arguments", {})
+                if isinstance(args, str):
+                    try:
+                        args = json.loads(args)
+                    except json.JSONDecodeError:
+                        args = {}
+                parts.append({
+                    "functionCall": {
+                        "name": fn.get("name", ""),
+                        "args": args,
+                    }
+                })
+
+        if role == "tool":
+            parts.append({
+                "functionResponse": {
+                    "name": msg.get("tool_name") or msg.get("tool_call_id", "unknown"),
+                    "response": {"result": content if isinstance(content, str) else json.dumps(content)},
+                }
+            })
 
         if parts:
             contents.append({"role": gemini_role, "parts": parts})

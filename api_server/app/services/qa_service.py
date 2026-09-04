@@ -55,21 +55,25 @@ def run_chat(question: str, provider: LLMProvider | None = None) -> dict:
             }
 
         # Process tool calls
-        assistant_content = []
+        tool_calls_payload = []
         for tc in response.tool_calls:
-            assistant_content.append({
+            tool_calls_payload.append({
+                "id": tc.id,
                 "type": "function",
                 "function": {
                     "name": tc.name,
                     "arguments": json.dumps(tc.input),
                 },
-                "id": tc.id,
             })
 
-        messages.append({"role": "assistant", "content": assistant_content})
+        assistant_msg: dict[str, Any] = {
+            "role": "assistant",
+            "content": response.text or None,
+            "tool_calls": tool_calls_payload,
+        }
+        messages.append(assistant_msg)
 
         # Execute tools and build results
-        tool_results = []
         for tc in response.tool_calls:
             result_json = dispatch_tool(tc.name, tc.input)
             tools_used.append({
@@ -77,13 +81,11 @@ def run_chat(question: str, provider: LLMProvider | None = None) -> dict:
                 "input": tc.input,
                 "result_summary": result_json[:200],
             })
-            tool_results.append({
+            messages.append({
                 "role": "tool",
                 "tool_call_id": tc.id,
                 "content": result_json,
             })
-
-        messages.extend(tool_results)
 
     # Safety fallback
     return {

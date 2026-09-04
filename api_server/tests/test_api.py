@@ -273,7 +273,9 @@ class TestChat:
         resp = client.post("/api/v1/chat", json={"question": ""})
         assert resp.status_code == 422  # min_length=1
 
-    def test_chat_no_provider_configured(self):
-        # Without GROQ_API_KEY, this should return 503
+    def test_chat_no_provider_configured(self, monkeypatch):
+        # Without API keys, this should return 503
+        monkeypatch.setenv("GROQ_API_KEY", "")
+        monkeypatch.setenv("GEMINI_API_KEY", "")
         resp = client.post("/api/v1/chat", json={"question": "What is the match rate?"})
         assert resp.status_code == 503

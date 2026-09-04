@@ -21,7 +21,7 @@ class GroqProvider(LLMProvider):
 
     def __init__(self) -> None:
         self._api_key = os.getenv("GROQ_API_KEY", "").strip()
-        self._model = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile").strip()
+        self._model = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b").strip()
 
     @property
     def provider_name(self) -> str:
@@ -79,7 +79,13 @@ class GroqProvider(LLMProvider):
                 json=payload,
                 timeout=60.0,
             )
-            resp.raise_for_status()
+            if resp.is_error:
+                try:
+                    err_json = resp.json()
+                    err_msg = err_json.get("error", {}).get("message", resp.text)
+                except Exception:
+                    err_msg = resp.text
+                raise RuntimeError(f"Groq API error ({resp.status_code}): {err_msg}")
         except Exception as exc:
             logger.error("Groq API error: %s", exc)
             raise RuntimeError(f"Groq API call failed: {exc}") from exc
